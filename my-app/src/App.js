@@ -1,7 +1,12 @@
 // import logo from './logo.svg';
 // import './App.css';
 // import MyComponent from "./components/MyComponents";
-import Counter from "./components/Counter.jsx";
+// import Counter from "./components/Counter.jsx";
+
+import Info from "./components/info";
+import { useState } from "react";
+// import Counter2 from "./components/Counter2.jsx";
+
 // import Say from "./components/Say";
 
 // function App() {
@@ -38,9 +43,24 @@ import Counter from "./components/Counter.jsx";
 // }
 
 function App() {
+  const [showinfo, setShowinfo] = useState(false);
   return (
     <div>
-      <Counter></Counter>
+      <button
+        onClick={() => {
+          setShowinfo(true);
+        }}
+      >
+        Info 나오기
+      </button>
+      <button
+        onClick={() => {
+          setShowinfo(false);
+        }}
+      >
+        Info 제거하기
+      </button>
+      {showinfo === true && <Info></Info>}
     </div>
   );
 }
